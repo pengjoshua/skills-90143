@@ -40,8 +40,8 @@ Please push your solution to the master branch in the provided github repository
 * To get started, run `npm i` from the root of the project in a terminal window
 * To start the server, run `npm start`
 * Open a browser and navigate to [http://localhost:3000](http://localhost:3000)
-* Upload a data file by clicking the `Choose Files` button and selecting the `data.input.txt` file
+* Upload a data file by clicking the `Choose Files` button and selecting the `data-input.txt` file
 
 ## Code
-* serverside code in `server.js`
+* server code in `server.js`
 * client app code in `app.js`
