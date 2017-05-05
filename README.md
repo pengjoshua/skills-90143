@@ -15,7 +15,7 @@ The input contains results of games, one per line. See data-input.txt for detail
 * We would like you to implement with the tech stack used here at Ballena: PHP 5.6, JavaScript, HTML, CSS
 * We prefer that you DO NOT use any PHP or JavaScript frameworks.
     * You are free to use jQuery and Bootstrap.
-* The user interface should have the ability to upload a data file to the server. 
+* The user interface should have the ability to upload a data file to the server.
 * The user interface should be able to make an asynchronous call to the server to retrieve the ranking data and display it in a tabular fashion.
 * The ranking table should be generated using server side code by parsing the data from the uploaded file.
 * Data returned from the server should be in JSON.
@@ -23,3 +23,25 @@ The input contains results of games, one per line. See data-input.txt for detail
 
 ## The Finished Application
 Please push your solution to the master branch in the provided github repository.
+
+---
+## Soccer League Scores and Ranking  
+
+## Technologies Used  
+* JavaScript
+* HTML
+* CSS
+* Bootstrap
+* jQuery
+* Node
+* Express
+
+## Setup
+* To get started, run `npm i` from the root of the project in a terminal window
+* To start the server, run `npm start`
+* Open a browser and navigate to [http://localhost:3000](http://localhost:3000)
+* Upload a data file by clicking the `Choose Files` button and selecting the `data.input.txt` file
+
+## Code
+* serverside code in `server.js`
+* client app code in `app.js`
