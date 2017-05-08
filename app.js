@@ -1,7 +1,7 @@
 function handleFileSelect(evt) {
-  const files = evt.target.files; // FileList object
+  const files = evt.target.files; // Filelist object
 
-  // Loop through the FileList
+  // Loop through the Filelist
   for (let i = 0, f; f = files[i]; i++) {
 
     const reader = new FileReader();
@@ -9,8 +9,15 @@ function handleFileSelect(evt) {
     // Closure to capture the file information.
     reader.onload = (file => {
       return e => {
+
         // Upload the contents of the file to the server
-        $.post('http://localhost:3000', { input: e.target.result }, (data, status) => {
+        $.post('http://localhost:3001', { input: e.target.result }, (response, status) => {
+          data = JSON.parse(response);
+
+        /* To solely use the Node/Express server without the PHP server, comment out the 2 lines above (lines 14, 15) and uncomment the 2 lines below (lines 18, 19) */
+        // $.post('http://localhost:3000', { input: e.target.result }, (response, status) => {
+        //   data = response;
+
           const div1 = document.createElement('div');
           const div2 = document.createElement('div');
 
@@ -48,6 +55,7 @@ function handleFileSelect(evt) {
           document.getElementById('ranking').insertBefore(div2, null);
         });
       };
+
     })(f);
 
     // Read in the file
