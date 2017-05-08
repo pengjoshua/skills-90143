@@ -4,6 +4,7 @@
   "description": "web based application that will calculate the ranking table for a soccer league",
   "main": "app.js",
   "scripts": {
+    "serve": "php -S localhost:3001 server.php",
     "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/pengjoshua/skills-90143#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "concurrently": "^3.4.0",
     "cors": "^2.8.3",
     "express": "^4.15.2",
     "jquery": "^3.2.1"
