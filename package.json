@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "php -S localhost:3001 server.php",
     "start": "node server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,14 @@
   "homepage": "https://github.com/pengjoshua/skills-90143#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "chai-things": "^0.2.0",
     "concurrently": "^3.4.0",
     "cors": "^2.8.3",
     "express": "^4.15.2",
-    "jquery": "^3.2.1"
+    "fs": "0.0.1-security",
+    "jquery": "^3.2.1",
+    "mocha": "^3.3.0"
   }
 }

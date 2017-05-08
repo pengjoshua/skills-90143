@@ -36,6 +36,8 @@ Please push your solution to the master branch in the provided github repository
 * jQuery
 * Node
 * Express
+* Mocha
+* Chai
 
 ## Setup
 * To get started, run `npm i` from the root of the project in a terminal window
@@ -43,6 +45,9 @@ Please push your solution to the master branch in the provided github repository
 * In a new terminal tab/window, start the Node/Express server by running `npm start`
 * Open a browser and navigate to [http://localhost:3000](http://localhost:3000)
 * Upload a data file by clicking the `Choose Files` button and selecting the `data-input.txt` file
+
+## Testing
+* To run unit tests, run `npm test` from the root of the project in a terminal window
 
 ## Code
 * Node/Express server code in `server.js`
