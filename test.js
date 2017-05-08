@@ -24,7 +24,7 @@ describe('Soccer League', () => {
 
   describe('posting with data-input.txt', () => {
 
-    it('should return JSON object of the scores matching data-input.txt', (done) => {
+    it('should return a JSON object of the scores matching data-input.txt', (done) => {
       fs.readFile('data-input.txt', 'utf8', (err, data) => {
         if (err) console.log(err);
         chai.request(app)
