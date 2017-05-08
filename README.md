@@ -31,6 +31,7 @@ Please push your solution to the master branch in the provided github repository
 * JavaScript
 * HTML
 * CSS
+* PHP
 * Bootstrap
 * jQuery
 * Node
