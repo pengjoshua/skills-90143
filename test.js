@@ -24,11 +24,11 @@ describe('Soccer League', () => {
 
   describe('posting with data-input.txt', () => {
 
-    it('should return a JSON object of the scores matching data-input.txt', (done) => {
+    it('POST /soccer should return a JSON object of the scores matching data-input.txt', (done) => {
       fs.readFile('data-input.txt', 'utf8', (err, data) => {
         if (err) console.log(err);
         chai.request(app)
-        .post('/')
+        .post('/soccer')
         .send({input: data})
         .end((err, res) => {
           const actual = JSON.stringify(res.body.scores);
@@ -66,12 +66,89 @@ describe('Soccer League', () => {
       });
     });
 
-    it('should return a JSON object of the team ranking matching data-output.txt', (done) => {
+    it('POST /soccer should return a JSON object of the team ranking matching data-output.txt', (done) => {
       fs.readFile('data-input.txt', 'utf8', (err, data) => {
         if (err) console.log(err);
         chai.request(app)
-        .post('/')
+        .post('/soccer')
         .send({input: data})
+        .end((err, res) => {
+          const actual = JSON.stringify(res.body.ranking);
+          const expected = JSON.stringify([
+            {
+              rank: '1.',
+              team: 'Tarantulas',
+              points: '6 pts'
+            },{
+              rank: '2.',
+              team: 'Lions',
+              points: '5 pts'
+            },{
+              rank: '3.',
+              team: 'FC Awesome',
+              points: '1 pt'
+            },{
+              rank: '3.',
+              team: 'Snakes',
+              points: '1 pt'
+            },{
+              rank: '5.',
+              team: 'Grouches',
+              points: '0 pts'
+            }
+          ]);
+          expect(actual).to.equal(expected);
+          done();
+        });
+      });
+    });
+
+    it('GET /soccer should return a JSON object of the scores matching data-input.txt', (done) => {
+      fs.readFile('data-input.txt', 'utf8', (err, data) => {
+        if (err) console.log(err);
+        chai.request(app)
+        .get('/soccer')
+        .end((err, res) => {
+          const actual = JSON.stringify(res.body.scores);
+          const expected = JSON.stringify([
+            {
+              team1: 'Lions',
+              goals1: 3,
+              team2: 'Snakes',
+              goals2: 3
+            },{
+              team1: 'Tarantulas',
+              goals1: 1,
+              team2: 'FC Awesome',
+              goals2: 0
+            },{
+              team1: 'Lions',
+              goals1: 1,
+              team2: 'FC Awesome',
+              goals2: 1
+            },{
+              team1: 'Tarantulas',
+              goals1: 3,
+              team2: 'Snakes',
+              goals2: 1
+            },{
+              team1: 'Lions',
+              goals1: 4,
+              team2: 'Grouches',
+              goals2: 0
+            }
+          ]);
+          expect(actual).to.equal(expected);
+          done();
+        });
+      });
+    });
+
+    it('GET /soccer should return a JSON object of the team ranking matching data-output.txt', (done) => {
+      fs.readFile('data-input.txt', 'utf8', (err, data) => {
+        if (err) console.log(err);
+        chai.request(app)
+        .get('/soccer')
         .end((err, res) => {
           const actual = JSON.stringify(res.body.ranking);
           const expected = JSON.stringify([

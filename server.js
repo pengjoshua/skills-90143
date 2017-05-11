@@ -73,7 +73,6 @@ app.get('/soccer', (req, res) => {
   // Directly read in data-input.txt file contents and store it in text.
   const text = fs.readFile('./data-input.txt', 'utf8', (err, text) => {
     if (err) console.log(err);
-    console.log('text', text);
 
     // Make sure the input is a string
     if (typeof text !== 'string') res.status(400).send('input must be a string');

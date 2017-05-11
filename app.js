@@ -18,12 +18,12 @@ function handleFileSelect(evt) {
         //   data = JSON.parse(response);
 
         /* 2. PHP server GET endpoint - the server directly reads in data-input.txt file */
-        $.get('http://localhost:3001', (response) => {
-          data = JSON.parse(response);
+        // $.get('http://localhost:3001', (response) => {
+        //   data = JSON.parse(response);
 
         /* 3. Node/Express server POST endpoint - select a text file to upload to the server */
-        // $.post('http://localhost:3000/soccer', { input: e.target.result }, (response, status) => {
-        //   data = response;
+        $.post('http://localhost:3000/soccer', { input: e.target.result }, (response, status) => {
+          data = response;
 
         /* 4. Node/Express server GET endpoint - the server directly reads in data-input.txt file */
         // $.get('http://localhost:3000/soccer', (response) => {
