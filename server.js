@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const cors = require('cors');
 const fs = require('fs');
 
@@ -11,7 +12,7 @@ app.use(cors());
 app.use(express.static(__dirname));
 
 // Set up POST route so that I can pass the text file (in the request body) as a string
-app.post('/', (req, res) => {
+app.post('/soccer', (req, res) => {
 
   // Make sure the input is a string
   if (typeof req.body.input !== 'string') res.status(400).send('input must be a string');
@@ -67,7 +68,7 @@ app.post('/', (req, res) => {
 });
 
 // GET endpoint that directly reads the data-input.txt file
-app.get('/', (req, res) => {
+app.get('/soccer', (req, res) => {
 
   // Directly read in data-input.txt file contents and store it in text.
   const text = fs.readFile('./data-input.txt', 'utf8', (err, text) => {

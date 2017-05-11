@@ -22,49 +22,49 @@ function handleFileSelect(evt) {
         //   data = JSON.parse(response);
 
         /* 3. Node/Express server POST endpoint - select a text file to upload to the server */
-        // $.post('http://localhost:3000', { input: e.target.result }, (response, status) => {
+        // $.post('http://localhost:3000/soccer', { input: e.target.result }, (response, status) => {
         //   data = response;
 
         /* 4. Node/Express server GET endpoint - the server directly reads in data-input.txt file */
-        $.get('http://localhost:3000', (response) => {
-          console.log('response', response);
-          data = response;
+        // $.get('http://localhost:3000/soccer', (response) => {
+        //     data = response;
 
-          const div1 = document.createElement('div');
-          const div2 = document.createElement('div');
+            const div1 = document.createElement('div');
+            const div2 = document.createElement('div');
 
-          // Add table content to divs
-          div1.innerHTML = `
-            <div class="row col-md-4">
-              <table class="table table-hover">
-                <tr><h4>Soccer League Scores</h4></tr>
-                <tr>
-                  <th>Home Team</th>
-                  <th>Goals</th>
-                  <th>Away Team</th>
-                  <th>Goals</th>
-                </tr>
-                ${data.scores.map(score => `<tr><td>${score.team1}</td><td>${score.goals1}</td><td>${score.team2}</td><td>${score.goals2}</td></tr>`).join('')}
-              </table>
-            </div>
-          `;
+            // Add table content to divs
+            div1.innerHTML = `
+              <div class="row col-md-4">
+                <table class="table table-hover">
+                  <tr><h4>Soccer League Scores</h4></tr>
+                  <tr>
+                    <th>Home Team</th>
+                    <th>Goals</th>
+                    <th>Away Team</th>
+                    <th>Goals</th>
+                  </tr>
+                  ${data.scores.map(score => `<tr><td>${score.team1}</td><td>${score.goals1}</td><td>${score.team2}</td><td>${score.goals2}</td></tr>`).join('')}
+                </table>
+              </div>
+            `;
 
-          div2.innerHTML = `
-            <div class="row col-md-3">
-              <table class="table table-hover">
-                <tr><h4>Soccer League Ranking</h4></tr>
-                <tr>
-                  <th>Rank</th>
-                  <th>Team</th>
-                  <th>Points</th>
-                </tr>
-                ${data.ranking.map(team => `<tr><td>${team.rank}</td><td>${team.team}</td><td>${team.points}</td></tr>`).join('')}
-              </table>
-            </div>
-          `;
+            div2.innerHTML = `
+              <div class="row col-md-3">
+                <table class="table table-hover">
+                  <tr><h4>Soccer League Ranking</h4></tr>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Team</th>
+                    <th>Points</th>
+                  </tr>
+                  ${data.ranking.map(team => `<tr><td>${team.rank}</td><td>${team.team}</td><td>${team.points}</td></tr>`).join('')}
+                </table>
+              </div>
+            `;
 
-          document.getElementById('scores').insertBefore(div1, null);
-          document.getElementById('ranking').insertBefore(div2, null);
+            document.getElementById('scores').insertBefore(div1, null);
+            document.getElementById('ranking').insertBefore(div2, null);
+
         });
       };
 
