@@ -84,7 +84,7 @@
   elseif ($method === 'GET') {
 
     // Retrieve input text file, convert text string to an array, splitting on new lines
-    $data = readfile('data-input.txt');
+    $data = file_get_contents('./data-input.txt');
     $lines = explode("\n", $data);
 
     // Remove empty lines and further split each line on commas to get each game
