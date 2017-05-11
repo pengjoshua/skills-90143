@@ -27,7 +27,7 @@ function handleFileSelect(evt) {
 
         /* 4. Node/Express server GET endpoint - the server directly reads in data-input.txt file */
         // $.get('http://localhost:3000/soccer', (response) => {
-        //     data = response;
+        //   data = response;
 
             const div1 = document.createElement('div');
             const div2 = document.createElement('div');
