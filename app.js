@@ -22,12 +22,13 @@ function handleFileSelect(evt) {
         //   data = JSON.parse(response);
 
         /* 3. Node/Express server POST endpoint - select a text file to upload to the server */
-        $.post('http://localhost:3000', { input: e.target.result }, (response, status) => {
-          data = response;
+        // $.post('http://localhost:3000', { input: e.target.result }, (response, status) => {
+        //   data = response;
 
         /* 4. Node/Express server GET endpoint - the server directly reads in data-input.txt file */
-        // $.get('http://localhost:3000', (response) => {
-        //   data = response;
+        $.get('http://localhost:3000', (response) => {
+          console.log('response', response);
+          data = response;
 
           const div1 = document.createElement('div');
           const div2 = document.createElement('div');
