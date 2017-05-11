@@ -4,18 +4,29 @@ function handleFileSelect(evt) {
   // Loop through the Filelist
   for (let i = 0, f; f = files[i]; i++) {
 
+    // Create a new FileReader instance
     const reader = new FileReader();
 
     // Closure to capture the file information.
     reader.onload = (file => {
       return e => {
 
-        // Upload the contents of the file to the server
-        $.post('http://localhost:3001', { input: e.target.result }, (response, status) => {
-          data = JSON.parse(response);
+        /* Select and uncomment only 1 of the 4 following server and endpoint combinations */
 
-        /* To solely use the Node/Express server without the PHP server, comment out the 2 lines above (lines 14, 15) and uncomment the 2 lines below (lines 18, 19) */
-        // $.post('http://localhost:3000', { input: e.target.result }, (response, status) => {
+        /* 1. PHP server POST endpoint - select a text file to upload to the server */
+        // $.post('http://localhost:3001', { input: e.target.result }, (response, status) => {
+        //   data = JSON.parse(response);
+
+        /* 2. PHP server GET endpoint - the server directly reads in data-input.txt file */
+        // $.get('http://localhost:3001', (response) => {
+        //   data = JSON.parse(response);
+
+        /* 3. Node/Express server POST endpoint - select a text file to upload to the server */
+        $.post('http://localhost:3000', { input: e.target.result }, (response, status) => {
+          data = response;
+
+        /* 4. Node/Express server GET endpoint - the server directly reads in data-input.txt file */
+        // $.get('http://localhost:3000', (response) => {
         //   data = response;
 
           const div1 = document.createElement('div');
@@ -62,5 +73,5 @@ function handleFileSelect(evt) {
     reader.readAsText(f);
   }
 }
-
+// Add Event Listener to the DOM
 document.getElementById('files').addEventListener('change', handleFileSelect, false);

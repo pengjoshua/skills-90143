@@ -42,7 +42,10 @@ Please push your solution to the master branch in the provided github repository
 ## Setup
 * To get started, run `npm i` from the root of the project in a terminal window
 * To start the PHP Server, run `npm run serve`
+    * Optionally you can run the PHP server with `php -S localhost:3001 server.php`
 * In a new terminal tab/window, start the Node/Express server by running `npm start`
+    * You must run the Node/Express server to load the webpage (even if you are running the PHP server)
+    * However, you do not need to run the PHP server if you only want to use the Node/Express server
 * Open a browser and navigate to [http://localhost:3000](http://localhost:3000)
 * Upload a data file by clicking the `Choose Files` button and selecting the `data-input.txt` file
 
